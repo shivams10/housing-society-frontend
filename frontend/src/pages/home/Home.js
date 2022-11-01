@@ -8,15 +8,20 @@ const Home = () => {
     <>
       <Navbar />
       <section className="">
-        <div className="home-banner">
-        </div>
+        <div className="home-banner"></div>
         <div className="choice-btn">
-        <Link to="user"><Commonbtn type="body-button" value="Users"/></Link>
-        <Link to="resource"><Commonbtn type="body-button" value="Resources"/></Link>
-        <Link to="occupancy"><Commonbtn type="body-button" value="Occupancies"/></Link>
+          <Link to="user">
+            <Commonbtn type="body-button" value="Users" />
+          </Link>
+          <Link to="resource">
+            <Commonbtn type="body-button" value="Resources" />
+          </Link>
+          <Link to="occupancy">
+            <Commonbtn type="body-button" value="Occupancies" />
+          </Link>
         </div>
       </section>
-    <Outlet/>
+      <Outlet />
     </>
   );
 };

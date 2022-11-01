@@ -1,9 +1,12 @@
-// import React from 'react'
-
-// const Inputfield = ({value,type,placeholder,}) => {
-//   return (
-//     <div>Inputfield</div>
-//   )
-// }
-
-// export default Inputfield
+export default function InputField({ name, displayName, info, ...otherProps }) {
+    return (
+      <div className="input-container">
+        {name && (
+          <label htmlFor={name}>
+            {displayName || name} {info && `(${info})`} :{" "}
+          </label>
+        )}
+        <input name={name} {...otherProps} />
+      </div>
+    );
+  }
