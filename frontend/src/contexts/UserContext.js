@@ -1,20 +1,13 @@
 import React, { createContext, useState } from "react";
 
-export const UserContext = createContext({
-  currentUser: {
-    id: null,
-    firstname: null,
-    lastname: null,
-    contact: null,
-    email: null,
-    isadmin: null,
-  },
-  setCurrentUser: () => null,
-});
+const UserContext = createContext();
 
-export default function UserProvider({ children }) {
+export const UserProvider=({ children }) =>{
   const [currentUser, setCurrentUser] = useState({});
-  const value = { currentUser, setCurrentUser };
+  const [allUsers, setAllUser] = useState([]);
+  const [allResources, setAllResources] =useState([]);
 
-  return <UserContext.Provider value={value}>{children}</UserContext.Provider>;
+  return <UserContext.Provider value={{ currentUser, setCurrentUser ,allUsers, setAllUser, allResources, setAllResources}}> {children} </UserContext.Provider>;
 }
+
+export const useAuth = () => React.useContext(UserContext)

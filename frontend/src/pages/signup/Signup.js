@@ -10,10 +10,10 @@ const Signup = () => {
       <div className="other-options">
         <span>
           Existing User?
-          <Link to="/login">Login</Link>
+          <Link to="/">Login</Link>
         </span>
         <span className="home-link">
-          Go back <Link to="/">Home</Link>
+          Go back <Link to="/home">Home</Link>
         </span>
       </div>
     </div>

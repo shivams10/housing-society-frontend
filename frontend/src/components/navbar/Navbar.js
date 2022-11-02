@@ -11,7 +11,7 @@ function Navbar() {
         <img src={Logo} />
       </div>
       <div className="nav-items">
-        <Link to="/login">
+        <Link to="/">
         <CommonBtn type="nav-button" value="Login" />
         </Link>
         <Link to="/signup">

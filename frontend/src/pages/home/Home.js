@@ -2,16 +2,20 @@ import React from "react";
 import { Link, Outlet } from "react-router-dom";
 import Commonbtn from "../../components/button/commonbtn/CommonBtn";
 import Navbar from "../../components/navbar/Navbar";
+import Banner from "../../assets/Banner.png"
 import "./Home.css";
 const Home = () => {
   return (
     <>
       <Navbar />
-      <section className="">
-        <div className="home-banner"></div>
+      <section className="home">
+        <div className="banner">
+          <img src={Banner} />
+        </div>
         <div className="choice-btn">
+          <h2>Press Button to show data</h2>
           <Link to="user">
-            <Commonbtn type="body-button" value="Users" />
+            <Commonbtn type="body-button" value="User" />
           </Link>
           <Link to="resource">
             <Commonbtn type="body-button" value="Resources" />

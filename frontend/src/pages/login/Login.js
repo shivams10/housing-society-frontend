@@ -4,7 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import Navbar from "../../components/navbar/Navbar";
 import InputField from "../../components/inputfield/InputField.js";
 import "./Login.css";
-import { UserContext } from "../../contexts/UserContext";
+import { useAuth } from "../../contexts/UserContext";
 
 const BASE_URL = process.env.REACT_APP_BASE_URL
 const defaultFormField = {
@@ -15,7 +15,7 @@ const defaultFormField = {
 const Login = () => {
   const [formField, setFormField] = useState(defaultFormField);
   const { email, password } = formField;
-  const { currentUser, setCurrentUser } = useContext(UserContext);
+  const { currentUser, setCurrentUser } = useAuth();
   const navigate = useNavigate();
 
 
@@ -28,7 +28,7 @@ const Login = () => {
   };
 
   useEffect(() => {
-    const token = sessionStorage.getItem("accessToken");
+    const token = localStorage.getItem("accessToken");
     const config = {
       headers: { Authorization: `Bearer ${token}` },
     };
@@ -48,20 +48,12 @@ const Login = () => {
     .then((response) => {
       if (typeof response.data === "object") {
         console.log(response.data)
-        const { id, firstname, lastname, contact, email, isadmin } =
-          response.data.token;
-        setCurrentUser({
-          id,
-          firstname,
-          lastname,
-          contact,
-          email,
-          isadmin,
-        });
+        
+        setCurrentUser(response.data.data);
         let token = response.data.token;
-        sessionStorage.setItem("accessToken", token);
+        localStorage.setItem("accessToken", token);
         console.log("logged in")
-        navigate("/")
+        navigate("/home")
       }
     })
     .catch((error) => {
@@ -109,7 +101,7 @@ const Login = () => {
             <Link to="/signup">Signup</Link>
           </span>
           <span className="home-link">
-            Go back <Link to="/">Home</Link>
+            Go back <Link to="/home">Home</Link>
           </span>
         </div>
       </div>

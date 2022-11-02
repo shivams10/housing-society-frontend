@@ -2,3 +2,23 @@
     margin:0px;
     padding: 0px;
 }
+
+.home{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10vh;
+    margin: 10vh;
+    box-shadow: 2px 5px #888888;
+}
+
+.choice-btn{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.banner > img{
+    width: 50%;
+}
