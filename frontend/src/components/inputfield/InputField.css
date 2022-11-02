@@ -1,23 +1,23 @@
 .input-container > label {
-    font-size: 18px;
-  }
-  
-  .input-container > input {
-    width: 100%;
-    height: 30px;
-    margin: 10px 0;
-    padding: 0 10px;
-    border: 1px solid black;
-    border-radius: 3px;
-    outline: none;
-    font-family: inherit;
-    font-size: 18px;
-    background-color: #f2f2f2 ;
-  }
-  
-  input[type="submit"] {
-    font-size: 16px;
-    font-weight: 600;
-    height: 40px;
-    cursor: pointer;
-  }
+  font-size: 18px;
+}
+
+.input-container > input {
+  width: 100%;
+  height: 30px;
+  margin: 10px 0;
+  border: 1px solid black;
+  border-radius: 3px;
+  outline: none;
+  font-size: 18px;
+  background-color: #f2f2f2;
+}
+
+input[type="submit"] {
+  font-size: 16px;
+  font-weight: 600;
+  height: 40px;
+  /* width: 50%; */
+  cursor: pointer;
+}
+
