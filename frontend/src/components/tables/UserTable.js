@@ -1,6 +1,8 @@
+import { useAuth } from "../../contexts/UserContext";
+import "./Table.css"
+
 import { useEffect } from "react";
 import Axios from "axios";
-import { useAuth } from "../../contexts/UserContext";
 
 const UserTable = () => {
   const BASE_URL = process.env.REACT_APP_BASE_URL;
@@ -22,16 +24,28 @@ const UserTable = () => {
   }, []);
 
   return (
-    <div>
-      {allUsers.length>0 &&
+    <div className="table">
+    <table>
+      <tr>
+        <th>User id</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>contact</th>
+        <th>Email</th>
+      </tr>
+      {allUsers.length > 0 &&
         allUsers?.map((user) => {
           return (
-            <h2 key={user.id}>
-              {user.id} {user.firstname} {user.lastname} {user.contact}{" "}
-              {user.email}
-            </h2>
+            <tr className="" key={user.id}>
+              <td>{user.id}</td>
+              <td> {user.firstname}</td>
+              <td> {user.lastname}</td>
+              <td> {user.contact}</td>
+              <td> {user.email}</td>
+            </tr>
           );
         })}
+    </table>
     </div>
   );
 };

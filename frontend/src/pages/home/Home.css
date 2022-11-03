@@ -1,24 +1,12 @@
 *{
-    margin:0px;
-    padding: 0px;
+    margin: 0;
+    padding: 0;
 }
 
-.home{
+.table-button-choice{
     display: flex;
     justify-content: space-around;
     align-items: center;
-    padding: 10vh;
-    margin: 10vh;
+    padding: 5px;
     box-shadow: 2px 5px #888888;
-}
-
-.choice-btn{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.banner > img{
-    width: 50%;
 }
