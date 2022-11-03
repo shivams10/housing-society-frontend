@@ -1,4 +1,3 @@
-import React from 'react';
 import {Routes, Route} from "react-router-dom";
 import UserTable from './components/tables/UserTable';
 import ResourceTable from "./components/tables/ResourceTable"
@@ -7,11 +6,12 @@ import Login from './pages/login/Login';
 import Signup from './pages/signup/Signup';
 import OccupancyTable from './components/tables/OccupancyTable';
 
+import React from 'react';
+
 function Routers() {
   return (
     <Routes>
         <Route path="/home" element={ <Home/> } >
-          {/* <Route index element={<h1>Users</h1>} /> */}
           <Route path='user' element={<UserTable />} />
           <Route path='resource' element={<ResourceTable />} />
           <Route path='occupancy' element={<OccupancyTable />} />

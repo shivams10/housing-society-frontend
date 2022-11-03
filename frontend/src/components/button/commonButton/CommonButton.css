@@ -1,0 +1,31 @@
+.nav-button{
+    font-size: 14px;
+    margin: 0 10px;
+    padding: 8px 10px;
+    border-radius: 15px;
+    cursor: pointer;
+    text-decoration: none;
+    border: none;
+    color: black;
+    background-color: #ffffff;
+}
+
+.body-button{
+    width: 150px;;
+    margin: 10px;
+    padding: 10px 20px;
+    font-size: 20px;
+    border-radius: 15px;
+    cursor: pointer;
+    text-decoration: none;
+    border: none;
+    color: #ffffff;
+    background-color: #8e2de2;
+}
+
+@media screen and (max-width: 720px) {
+    .body-button{
+        font-size: 12px;
+        width: fit-content;
+    }
+  }

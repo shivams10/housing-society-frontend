@@ -11,9 +11,12 @@ const ResourceTable = () => {
   useEffect(() => {
     const token = localStorage.getItem("accessToken");
     const config = {
-      Headers: { Authorization: `Bearer ${token}` },
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
     };
-    token &&
+    if(token){
       Axios.get(`${BASE_URL}/resources`, config)
         .then((response) => {
           setAllResources(response.data.data);
@@ -21,6 +24,7 @@ const ResourceTable = () => {
         .catch((error) => {
           console.log(error);
         });
+    }
   }, []);
 
   return (

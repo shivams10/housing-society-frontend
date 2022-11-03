@@ -20,3 +20,7 @@
     height: 50px;
     border-radius: 15px;
 }
+
+@media screen and (max-width: 720px) {
+  
+}

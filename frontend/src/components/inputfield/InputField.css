@@ -17,7 +17,7 @@ input[type="submit"] {
   font-size: 16px;
   font-weight: 600;
   height: 40px;
-  /* width: 50%; */
   cursor: pointer;
+  border-radius: 20px;
 }
 

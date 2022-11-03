@@ -18,7 +18,7 @@ export const UserProvider = ({ children }) => {
         allResources,
         setAllResources,
         allOccupancy,
-        setAllOccupancy
+        setAllOccupancy,
       }}
     >
       {children}

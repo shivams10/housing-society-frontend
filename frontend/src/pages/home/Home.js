@@ -1,4 +1,4 @@
-import Commonbtn from "../../components/button/commonButton/CommonButton";
+import CommonButton from "../../components/button/commonButton/CommonButton";
 import Navbar from "../../components/navbar/Navbar";
 import "./Home.css";
 
@@ -10,15 +10,15 @@ const Home = () => {
     <>
       <Navbar />
       <section className="table-button-choice">
-          <Link to="user">
-            <Commonbtn type="body-button" value="User" />
-          </Link>
-          <Link to="resource">
-            <Commonbtn type="body-button" value="Resources" />
-          </Link>
-          <Link to="occupancy">
-            <Commonbtn type="body-button" value="Occupancies" />
-          </Link>
+        <Link to="user">
+          <CommonButton type="body-button" value="User" />
+        </Link>
+        <Link to="resource">
+          <CommonButton type="body-button" value="Resources" />
+        </Link>
+        <Link to="occupancy">
+          <CommonButton type="body-button" value="Occupancies" />
+        </Link>
       </section>
       <Outlet />
     </>

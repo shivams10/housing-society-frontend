@@ -1,0 +1,24 @@
+.table {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+table {
+  width: 100%;
+  height: 100%;
+  border: 2px solid rgb(101, 34, 139);
+  background-color: snow;
+}
+
+th {
+  padding: 10px 0;
+  background-color: rgb(225, 188, 242);
+  border-bottom: 2px solid rgb(49, 43, 54);
+}
+
+td {
+  padding: 10px 0;
+  text-align: center;
+  border: 1px solid black;
+}
