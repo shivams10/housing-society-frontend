@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./Navbar.css";
 import Logo from "../../assets/Logo.jpeg";
-import CommonBtn from "../button/commonbtn/CommonBtn";
+import CommonBtn from "../button/commonButton/CommonButton";
 
 function Navbar() {
   return (

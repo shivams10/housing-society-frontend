@@ -1,8 +1,10 @@
-import { useContext, useEffect } from "react";
-import Axios from "axios";
 import { useAuth } from "../../contexts/UserContext";
+import "./Table.css";
 
-const UserTable = () => {
+import { useEffect } from "react";
+import Axios from "axios";
+
+const ResourceTable = () => {
   const BASE_URL = process.env.REACT_APP_BASE_URL;
   const { allResources, setAllResources } = useAuth();
 
@@ -22,17 +24,26 @@ const UserTable = () => {
   }, []);
 
   return (
-    <div>
-      {allResources.length>0 &&
+    <div className="table">
+    <table>
+      <tr>
+        <th>Resource id</th>
+        <th>Resource Name</th>
+        <th>Resource Status</th>
+      </tr>
+      {allResources.length > 0 &&
         allResources?.map((resource) => {
           return (
-            <h2 key={resource.id}>
-              {resource.id} {resource.resourcename} {resource.status}
-            </h2>
+            <tr className="" key={resource.id}>
+              <td>{resource.id}</td>
+              <td> {resource.resourcename}</td>
+              <td> {resource.status}</td>
+            </tr>
           );
         })}
+    </table>
     </div>
   );
 };
 
-export default UserTable;
+export default ResourceTable;

@@ -5,6 +5,7 @@ import ResourceTable from "./components/tables/ResourceTable"
 import Home from './pages/home/Home';
 import Login from './pages/login/Login';
 import Signup from './pages/signup/Signup';
+import OccupancyTable from './components/tables/OccupancyTable';
 
 function Routers() {
   return (
@@ -13,7 +14,7 @@ function Routers() {
           {/* <Route index element={<h1>Users</h1>} /> */}
           <Route path='user' element={<UserTable />} />
           <Route path='resource' element={<ResourceTable />} />
-          <Route path='occupancy' element={<h1>Occupancies</h1>} />
+          <Route path='occupancy' element={<OccupancyTable />} />
         </Route>
         <Route path="/" element={ <Login/> } />
         <Route path="/signup" element={ <Signup/> } />

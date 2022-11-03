@@ -1,12 +1,14 @@
-import React, { useState,useEffect,useContext } from "react";
-import Axios from "axios";
-import { Link, useNavigate } from "react-router-dom";
 import Navbar from "../../components/navbar/Navbar";
 import InputField from "../../components/inputfield/InputField.js";
 import "./Login.css";
 import { useAuth } from "../../contexts/UserContext";
 
+import React, { useState,useEffect, } from "react";
+import Axios from "axios";
+import { Link, useNavigate } from "react-router-dom";
+
 const BASE_URL = process.env.REACT_APP_BASE_URL
+
 const defaultFormField = {
   email: "",
   password: "",
@@ -15,9 +17,9 @@ const defaultFormField = {
 const Login = () => {
   const [formField, setFormField] = useState(defaultFormField);
   const { email, password } = formField;
-  const { currentUser, setCurrentUser } = useAuth();
-  const navigate = useNavigate();
+  const {  setCurrentUser } = useAuth();
 
+  const navigate = useNavigate();
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -32,7 +34,7 @@ const Login = () => {
     const config = {
       headers: { Authorization: `Bearer ${token}` },
     };
-    !token &&
+    token &&
       Axios.get(`${process.env.REACT_APP_BASE_URL}/user`, config)
         .then((response) => {
           setCurrentUser({ ...response.data });
@@ -46,13 +48,10 @@ const Login = () => {
       ...formField
     })
     .then((response) => {
-      if (typeof response.data === "object") {
-        console.log(response.data)
-        
+      if (typeof response.data === "object") {        
         setCurrentUser(response.data.data);
         let token = response.data.token;
         localStorage.setItem("accessToken", token);
-        console.log("logged in")
         navigate("/home")
       }
     })

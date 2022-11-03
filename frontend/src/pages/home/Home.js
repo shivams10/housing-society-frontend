@@ -1,19 +1,15 @@
+import Commonbtn from "../../components/button/commonButton/CommonButton";
+import Navbar from "../../components/navbar/Navbar";
+import "./Home.css";
+
 import React from "react";
 import { Link, Outlet } from "react-router-dom";
-import Commonbtn from "../../components/button/commonbtn/CommonBtn";
-import Navbar from "../../components/navbar/Navbar";
-import Banner from "../../assets/Banner.png"
-import "./Home.css";
+
 const Home = () => {
   return (
     <>
       <Navbar />
-      <section className="home">
-        <div className="banner">
-          <img src={Banner} />
-        </div>
-        <div className="choice-btn">
-          <h2>Press Button to show data</h2>
+      <section className="table-button-choice">
           <Link to="user">
             <Commonbtn type="body-button" value="User" />
           </Link>
@@ -23,7 +19,6 @@ const Home = () => {
           <Link to="occupancy">
             <Commonbtn type="body-button" value="Occupancies" />
           </Link>
-        </div>
       </section>
       <Outlet />
     </>
