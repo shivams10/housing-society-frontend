@@ -40,7 +40,7 @@ const ResourceTable = () => {
           return (
             <tr className="" key={resource.id}>
               <td>{resource.id}</td>
-              <td> {resource.resourcename}</td>
+              <td> {resource.resource_name}</td>
               <td> {resource.status}</td>
             </tr>
           );

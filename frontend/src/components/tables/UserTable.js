@@ -17,7 +17,7 @@ const UserTable = () => {
       },
     };
     if (token) {
-      Axios.get(`${BASE_URL}/user`, config)
+      Axios.get(`${BASE_URL}/users`, config)
         .then((response) => {
           setAllUser(response.data.data);
         })
@@ -34,7 +34,7 @@ const UserTable = () => {
           <th>User id</th>
           <th>First Name</th>
           <th>Last Name</th>
-          <th>contact</th>
+          <th>Contact</th>
           <th>Email</th>
         </tr>
         {allUsers.length > 0 &&
@@ -42,8 +42,8 @@ const UserTable = () => {
             return (
               <tr className="" key={user.id}>
                 <td>{user.id}</td>
-                <td> {user.firstname}</td>
-                <td> {user.lastname}</td>
+                <td> {user.first_name}</td>
+                <td> {user.last_name}</td>
                 <td> {user.contact}</td>
                 <td> {user.email}</td>
               </tr>

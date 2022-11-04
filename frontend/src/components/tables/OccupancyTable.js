@@ -16,7 +16,7 @@ const OccupancyTable = () => {
       },
     };
     if (token) {
-      Axios.get(`${BASE_URL}/occupancy`, config)
+      Axios.get(`${BASE_URL}/occupancies`, config)
         .then((response) => {
           setAllOccupancy(response.data.data);
         })
@@ -41,10 +41,10 @@ const OccupancyTable = () => {
             return (
               <tr className="" key={occupancy.id}>
                 <td>{occupancy.id}</td>
-                <td> {occupancy.resourceId}</td>
-                <td> {occupancy.userId}</td>
-                <td> {occupancy.isAvailable ? "available" : "occupied"}</td>
-                <td> {occupancy.occupancyDate}</td>
+                <td> {occupancy.resource_id}</td>
+                <td> {occupancy.user_id}</td>
+                <td> {occupancy.is_available ? "available" : "occupied"}</td>
+                <td> {occupancy.occupancy_date}</td>
               </tr>
             );
           })}

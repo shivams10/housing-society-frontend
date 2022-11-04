@@ -30,7 +30,7 @@ const Login = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    Axios.post(`${BASE_URL}/user/login`, {
+    Axios.post(`${BASE_URL}/users/login`, {
       ...formField,
     })
       .then((response) => {

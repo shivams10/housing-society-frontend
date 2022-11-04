@@ -3,23 +3,24 @@ import InputField from "../../components/inputfield/InputField.js";
 import "./Signup.css";
 import { useAuth } from "../../contexts/UserContext";
 
-import React, { useState,useEffect, } from "react";
+import React, { useState, } from "react";
 import Axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 
 const BASE_URL = process.env.REACT_APP_BASE_URL
 
 const defaultFormField = {
-  firstname: "",
-  lastname: "",
+  first_name: "",
+  last_name: "",
   email: "",
   password: "",
-  contact: ""
+  contact: "",
+  is_admin : 0
 };
 
 const Signup = () => {
   const [formField, setFormField] = useState(defaultFormField);
-  const { firstname,lastname ,email, password ,contact} = formField;
+  const { first_name,last_name ,email, password ,contact, is_admin} = formField;
   const {  setCurrentUser } = useAuth();
 
   const navigate = useNavigate();
@@ -34,7 +35,7 @@ const Signup = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    Axios.post(`${BASE_URL}/user/`,{
+    Axios.post(`${BASE_URL}/users`,{
       ...formField
     })
     .then(() => {
@@ -58,16 +59,16 @@ const Signup = () => {
         </header>
         <form className="form-container" onSubmit={handleSubmit}>
         <InputField
-            name="firstname"
+            name="first_name"
             type="name"
-            value={firstname}
+            value={first_name}
             onChange={handleChange}
             required
           />
           <InputField
-            name="lastname"
+            name="last_name"
             type="name"
-            value={lastname}
+            value={last_name}
             onChange={handleChange}
             required
           />
@@ -92,6 +93,15 @@ const Signup = () => {
             onChange={handleChange}
             required
           />
+          {/* <InputField
+            name="is_admin"
+            type="boolean"
+            value={is_admin}
+            onChange={handleChange}
+            required
+          /> */}
+          {/* <label for="is_admin">Admin</label> */}
+          <InputField type="checkbox" name="is_admin" onChange={handleChange} value="true"/>
           <InputField type="submit" value="submit" />
         </form>
         <div className="other-options">
