@@ -1,14 +1,15 @@
-import "./Navbar.css";
-import Logo from "../../assets/Logo.jpeg";
-import CommonButton from "../button/commonButton/CommonButton";
-import { useAuth } from "../../contexts/UserContext";
-
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
+import { useAuth } from "../../contexts/UserContext";
+import Logo from "../../assets/Logo.jpeg";
+import CommonButton from "../button/commonButton/CommonButton";
+import "./Navbar.css";
+
+
 function Navbar() {
   const { setCurrentUser } = useAuth();
-  var [isLoggedIn, setIsLoogedIn] = useState(false);
+  const [isLoggedIn, setIsLoogedIn] = useState(false);
 
   const navigate = useNavigate();
 
@@ -21,9 +22,8 @@ function Navbar() {
   useEffect(() => {
     const token = localStorage.getItem("accessToken");
     if (token) {
-      isLoggedIn = true;
+      setIsLoogedIn(true);
     }
-    setIsLoogedIn(isLoggedIn);
   }, []);
 
   return (

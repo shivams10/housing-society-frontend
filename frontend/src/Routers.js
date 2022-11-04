@@ -1,4 +1,5 @@
 import {Routes, Route} from "react-router-dom";
+
 import UserTable from './components/tables/UserTable';
 import ResourceTable from "./components/tables/ResourceTable"
 import Home from './pages/home/Home';

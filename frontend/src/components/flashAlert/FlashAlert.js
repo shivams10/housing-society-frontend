@@ -1,4 +1,5 @@
 import React from "react";
+
 import "./FlashAlert.css";
 
 export default function FlashAlert({ value, show, type = "" }) {

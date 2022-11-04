@@ -1,8 +1,9 @@
+import { useEffect } from "react";
+import Axios from "axios";
+
 import { useAuth } from "../../contexts/UserContext";
 import "./Table.css";
 
-import { useEffect } from "react";
-import Axios from "axios";
 
 const UserTable = () => {
   const BASE_URL = process.env.REACT_APP_BASE_URL;
@@ -29,6 +30,9 @@ const UserTable = () => {
 
   return (
     <div className="table">
+      <header className="table-heading" >
+        <h2>Users Table</h2>
+      </header>
       <table>
         <tr>
           <th>User id</th>

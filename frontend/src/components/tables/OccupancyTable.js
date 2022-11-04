@@ -1,7 +1,8 @@
-import { useAuth } from "../../contexts/UserContext";
-
 import { useEffect } from "react";
 import Axios from "axios";
+
+import { useAuth } from "../../contexts/UserContext";
+
 
 const OccupancyTable = () => {
   const BASE_URL = process.env.REACT_APP_BASE_URL;
@@ -28,6 +29,9 @@ const OccupancyTable = () => {
 
   return (
     <div className="table">
+      <header className="table-heading" >
+        <h2>Occupancies Table</h2>
+      </header>
       <table>
         <tr>
           <th>Occpancy id</th>

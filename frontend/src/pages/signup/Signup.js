@@ -1,11 +1,12 @@
-import Navbar from "../../components/navbar/Navbar";
-import InputField from "../../components/inputfield/InputField.js";
-import "./Signup.css";
-import { useAuth } from "../../contexts/UserContext";
-
 import React, { useState } from "react";
 import Axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
+
+import { useAuth } from "../../contexts/UserContext";
+import Navbar from "../../components/navbar/Navbar";
+import InputField from "../../components/inputfield/InputField.js";
+import "./Signup.css";
+
 
 const BASE_URL = process.env.REACT_APP_BASE_URL;
 

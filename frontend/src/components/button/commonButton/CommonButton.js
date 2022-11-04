@@ -1,4 +1,5 @@
 import React from "react";
+
 import "./CommonButton.css";
 
 const CommonButton = ({ value, type, ...restProps }) => {

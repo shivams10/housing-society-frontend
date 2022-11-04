@@ -1,12 +1,13 @@
+import React, { useState } from "react";
+import Axios from "axios";
+import { Link, useNavigate } from "react-router-dom";
+
 import Navbar from "../../components/navbar/Navbar";
 import InputField from "../../components/inputfield/InputField.js";
 import "./Login.css";
 import { useAuth } from "../../contexts/UserContext";
 import FlashAlert from "../../components/flashAlert/FlashAlert";
 
-import React, { useState } from "react";
-import Axios from "axios";
-import { Link, useNavigate } from "react-router-dom";
 
 const BASE_URL = process.env.REACT_APP_BASE_URL;
 const defaultFormField = {
