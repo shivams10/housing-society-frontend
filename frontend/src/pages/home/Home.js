@@ -10,13 +10,13 @@ const Home = () => {
     <>
       <Navbar />
       <section className="table-button-choice">
-        <Link to="user">
+        <Link to="users">
           <CommonButton type="body-button" value="User" />
         </Link>
-        <Link to="resource">
+        <Link to="resources">
           <CommonButton type="body-button" value="Resources" />
         </Link>
-        <Link to="occupancy">
+        <Link to="occupancies">
           <CommonButton type="body-button" value="Occupancies" />
         </Link>
       </section>

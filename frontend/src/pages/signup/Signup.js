@@ -3,11 +3,11 @@ import InputField from "../../components/inputfield/InputField.js";
 import "./Signup.css";
 import { useAuth } from "../../contexts/UserContext";
 
-import React, { useState, } from "react";
+import React, { useState } from "react";
 import Axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 
-const BASE_URL = process.env.REACT_APP_BASE_URL
+const BASE_URL = process.env.REACT_APP_BASE_URL;
 
 const defaultFormField = {
   first_name: "",
@@ -15,13 +15,14 @@ const defaultFormField = {
   email: "",
   password: "",
   contact: "",
-  is_admin : 0
+  is_admin: 0,
 };
 
 const Signup = () => {
   const [formField, setFormField] = useState(defaultFormField);
-  const { first_name,last_name ,email, password ,contact, is_admin} = formField;
-  const {  setCurrentUser } = useAuth();
+  const { first_name, last_name, email, password, contact, is_admin } =
+    formField;
+  const { setCurrentUser } = useAuth();
 
   const navigate = useNavigate();
 
@@ -35,20 +36,20 @@ const Signup = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    Axios.post(`${BASE_URL}/users`,{
-      ...formField
+    Axios.post(`${BASE_URL}/users`, {
+      ...formField,
     })
-    .then(() => {
-      setCurrentUser(defaultFormField);
-      console.log("Registration Successful");
-      navigate('/');
-    })
-    .catch((error) => {
-      if (error.response.status === 501 ) {
-        console.log("Couldn't connect to server");
-      }
-    })
-  }
+      .then(() => {
+        setCurrentUser(defaultFormField);
+        console.log("Registration Successful");
+        navigate("/");
+      })
+      .catch((error) => {
+        if (error.response.status === 501) {
+          console.log("Couldn't connect to server");
+        }
+      });
+  };
 
   return (
     <>
@@ -58,7 +59,7 @@ const Signup = () => {
           <h1 className="page-heading">Welcome! Signup</h1>
         </header>
         <form className="form-container" onSubmit={handleSubmit}>
-        <InputField
+          <InputField
             name="first_name"
             type="name"
             value={first_name}
@@ -93,21 +94,22 @@ const Signup = () => {
             onChange={handleChange}
             required
           />
-          {/* <InputField
-            name="is_admin"
-            type="boolean"
-            value={is_admin}
-            onChange={handleChange}
-            required
-          /> */}
-          {/* <label for="is_admin">Admin</label> */}
-          <InputField type="checkbox" name="is_admin" onChange={handleChange} value="true"/>
+          <div className="check-box">
+            <InputField
+              type="checkbox"
+              name="is_admin"
+              onChange={handleChange}
+              value={1}
+            />
+          </div>
           <InputField type="submit" value="submit" />
         </form>
         <div className="other-options">
           <span>
             Already a user ?
-            <Link className="link" to="/">Login</Link>
+            <Link className="link" to="/">
+              Login
+            </Link>
           </span>
         </div>
       </div>

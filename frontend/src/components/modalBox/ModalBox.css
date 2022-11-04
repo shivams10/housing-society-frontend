@@ -1,0 +1,42 @@
+
+.modal-container {
+    position: fixed;
+    z-index: 1;
+    background-color: rgba(0, 0, 0, 0.7);
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(3px);
+  }
+  
+  .modal-content {
+    width: 400px;
+    height: 150px;
+    background-color: azure;
+    border-radius: 4px;
+    padding: 10px;
+    font-size: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .modal-content p {
+    height: 70%;
+    padding: 36px 0;
+  }
+  
+  .close-button {
+    width: 100px;
+    background-color: black;
+    border-radius: 3px;
+    font-family: inherit;
+    font-size: 18px;
+    color: aliceblue;
+    height: 30px;
+  }

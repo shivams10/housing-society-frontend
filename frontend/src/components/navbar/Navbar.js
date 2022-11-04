@@ -7,7 +7,7 @@ import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
 function Navbar() {
-  const { currentUser, setCurrentUser } = useAuth();
+  const { setCurrentUser } = useAuth();
   var [isLoggedIn, setIsLoogedIn] = useState(false);
 
   const navigate = useNavigate();
@@ -20,8 +20,8 @@ function Navbar() {
 
   useEffect(() => {
     const token = localStorage.getItem("accessToken");
-    if(token) {
-      isLoggedIn= true;
+    if (token) {
+      isLoggedIn = true;
     }
     setIsLoogedIn(isLoggedIn);
   }, []);
@@ -33,12 +33,14 @@ function Navbar() {
       </div>
       <div className="nav-items">
         {isLoggedIn == false ? (
-          <><Link to="/">
-            <CommonButton type="nav-button" value="Login" />
-          </Link>
-          <Link to="/signup">
-          <CommonButton type="nav-button" value="Signup" />
-        </Link></>
+          <>
+            <Link to="/">
+              <CommonButton type="nav-button" value="Login" />
+            </Link>
+            <Link to="/signup">
+              <CommonButton type="nav-button" value="Signup" />
+            </Link>
+          </>
         ) : (
           <CommonButton
             onClick={handleClick}

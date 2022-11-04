@@ -2,6 +2,7 @@ import Navbar from "../../components/navbar/Navbar";
 import InputField from "../../components/inputfield/InputField.js";
 import "./Login.css";
 import { useAuth } from "../../contexts/UserContext";
+import FlashAlert from "../../components/flashAlert/FlashAlert";
 
 import React, { useState } from "react";
 import Axios from "axios";
@@ -17,6 +18,8 @@ const Login = () => {
   const [formField, setFormField] = useState(defaultFormField);
   const { email, password } = formField;
   const { setCurrentUser } = useAuth();
+  const [showModal, setShowModal] = useState(false);
+  const [modalValue, setModalValue] = useState("");
 
   const navigate = useNavigate();
 
@@ -26,6 +29,10 @@ const Login = () => {
       ...formField,
       [name]: value,
     });
+  };
+  const modalAlert = (message) => {
+    setModalValue(message);
+    setShowModal(true);
   };
 
   const handleSubmit = (event) => {
@@ -43,15 +50,15 @@ const Login = () => {
       })
       .catch((error) => {
         if (error.code === 501) {
-          console.log("Something went wrong");
+          modalAlert("Something went wrong!");
         } else if (
           error.response.status === 403 ||
           error.response.status === 401
         ) {
-          console.log("Incorrect username or password!");
+          modalAlert("Incorrect username or password!");
         }
         if (error.response.status === 404) {
-          console.log("User not found");
+          modalAlert("User Not found!");
         }
       });
   };
@@ -62,6 +69,7 @@ const Login = () => {
       <div className="login-container">
         <header>
           <h1 className="page-heading">Welcome! Login</h1>
+          <FlashAlert show={showModal} value={modalValue} />
         </header>
         <form className="form-container" onSubmit={handleSubmit}>
           <InputField
@@ -83,7 +91,9 @@ const Login = () => {
         <div className="other-options">
           <span>
             New User?
-            <Link className="link" to="/signup">Signup</Link>
+            <Link className="link" to="/signup">
+              Signup
+            </Link>
           </span>
         </div>
       </div>
