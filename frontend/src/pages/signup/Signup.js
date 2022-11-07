@@ -1,26 +1,29 @@
-import Navbar from "../../components/navbar/Navbar";
-import InputField from "../../components/inputfield/InputField.js";
-import "./Signup.css";
-import { useAuth } from "../../contexts/UserContext";
-
-import React, { useState,useEffect, } from "react";
+import React, { useState } from "react";
 import Axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 
-const BASE_URL = process.env.REACT_APP_BASE_URL
+import { useAuth } from "../../contexts/UserContext";
+import Navbar from "../../components/navbar/Navbar";
+import InputField from "../../components/inputfield/InputField.js";
+import "./Signup.css";
+
+
+const BASE_URL = process.env.REACT_APP_BASE_URL;
 
 const defaultFormField = {
-  firstname: "",
-  lastname: "",
+  first_name: "",
+  last_name: "",
   email: "",
   password: "",
-  contact: ""
+  contact: "",
+  is_admin: 0,
 };
 
 const Signup = () => {
   const [formField, setFormField] = useState(defaultFormField);
-  const { firstname,lastname ,email, password ,contact} = formField;
-  const {  setCurrentUser } = useAuth();
+  const { first_name, last_name, email, password, contact, is_admin } =
+    formField;
+  const { setCurrentUser } = useAuth();
 
   const navigate = useNavigate();
 
@@ -34,20 +37,20 @@ const Signup = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    Axios.post(`${BASE_URL}/user/`,{
-      ...formField
+    Axios.post(`${BASE_URL}/users`, {
+      ...formField,
     })
-    .then(() => {
-      setCurrentUser(defaultFormField);
-      console.log("Registration Successful");
-      navigate('/');
-    })
-    .catch((error) => {
-      if (error.response.status === 501 ) {
-        console.log("Couldn't connect to server");
-      }
-    })
-  }
+      .then(() => {
+        setCurrentUser(defaultFormField);
+        console.log("Registration Successful");
+        navigate("/");
+      })
+      .catch((error) => {
+        if (error.response.status === 501) {
+          console.log("Couldn't connect to server");
+        }
+      });
+  };
 
   return (
     <>
@@ -57,17 +60,17 @@ const Signup = () => {
           <h1 className="page-heading">Welcome! Signup</h1>
         </header>
         <form className="form-container" onSubmit={handleSubmit}>
-        <InputField
-            name="firstname"
+          <InputField
+            name="first_name"
             type="name"
-            value={firstname}
+            value={first_name}
             onChange={handleChange}
             required
           />
           <InputField
-            name="lastname"
+            name="last_name"
             type="name"
-            value={lastname}
+            value={last_name}
             onChange={handleChange}
             required
           />
@@ -92,12 +95,22 @@ const Signup = () => {
             onChange={handleChange}
             required
           />
+          <div className="check-box">
+            <InputField
+              type="checkbox"
+              name="is_admin"
+              onChange={handleChange}
+              value={1}
+            />
+          </div>
           <InputField type="submit" value="submit" />
         </form>
         <div className="other-options">
           <span>
             Already a user ?
-            <Link className="link" to="/">Login</Link>
+            <Link className="link" to="/">
+              Login
+            </Link>
           </span>
         </div>
       </div>

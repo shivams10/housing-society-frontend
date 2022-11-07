@@ -1,7 +1,8 @@
-import { useAuth } from "../../contexts/UserContext";
-
 import { useEffect } from "react";
 import Axios from "axios";
+
+import { useAuth } from "../../contexts/UserContext";
+
 
 const OccupancyTable = () => {
   const BASE_URL = process.env.REACT_APP_BASE_URL;
@@ -16,7 +17,7 @@ const OccupancyTable = () => {
       },
     };
     if (token) {
-      Axios.get(`${BASE_URL}/occupancy`, config)
+      Axios.get(`${BASE_URL}/occupancies`, config)
         .then((response) => {
           setAllOccupancy(response.data.data);
         })
@@ -28,6 +29,9 @@ const OccupancyTable = () => {
 
   return (
     <div className="table">
+      <header className="table-heading" >
+        <h2>Occupancies Table</h2>
+      </header>
       <table>
         <tr>
           <th>Occpancy id</th>
@@ -41,10 +45,10 @@ const OccupancyTable = () => {
             return (
               <tr className="" key={occupancy.id}>
                 <td>{occupancy.id}</td>
-                <td> {occupancy.resourceId}</td>
-                <td> {occupancy.userId}</td>
-                <td> {occupancy.isAvailable ? "available" : "occupied"}</td>
-                <td> {occupancy.occupancyDate}</td>
+                <td> {occupancy.resource_id}</td>
+                <td> {occupancy.user_id}</td>
+                <td> {occupancy.is_available ? "available" : "occupied"}</td>
+                <td> {occupancy.occupancy_date}</td>
               </tr>
             );
           })}

@@ -1,10 +1,13 @@
-import React from 'react'
-import "./CommonButton.css"
+import React from "react";
 
-const CommonButton = ({value,type, ...restProps}) => {
+import "./CommonButton.css";
+
+const CommonButton = ({ value, type, ...restProps }) => {
   return (
-    <button className={`${type}`} {...restProps} >{value}</button>
-    )
-}
+    <button className={`${type}`} {...restProps}>
+      {value}
+    </button>
+  );
+};
 
 export default CommonButton;
