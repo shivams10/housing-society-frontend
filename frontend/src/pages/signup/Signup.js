@@ -4,7 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 
 import { useAuth } from "../../contexts/UserContext";
 import Navbar from "../../components/navbar/Navbar";
-import InputField from "../../components/inputfield/InputField.js";
+import InputField from "../../components/inputfield/InputfFeld.js";
 import "./Signup.css";
 
 
