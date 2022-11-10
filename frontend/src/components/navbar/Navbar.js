@@ -6,7 +6,6 @@ import Logo from "../../assets/Logo.jpeg";
 import CommonButton from "../button/commonButton/CommonButton";
 import "./Navbar.css";
 
-
 function Navbar() {
   const { setCurrentUser } = useAuth();
   const [isLoggedIn, setIsLoogedIn] = useState(false);
