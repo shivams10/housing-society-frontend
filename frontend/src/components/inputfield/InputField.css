@@ -1,6 +1,5 @@
 .input-container > label {
   font-size: 18px;
-  color: white;
 }
 
 .input-container > input {
@@ -11,7 +10,6 @@
   border-radius: 3px;
   outline: none;
   font-size: 18px;
-  color: black;
   background-color: #f2f2f2;
 }
 
