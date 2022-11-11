@@ -6,7 +6,6 @@ import Logo from "../../assets/Logo.jpeg";
 import CommonButton from "../button/commonButton/CommonButton";
 import "./Navbar.css";
 
-
 function Navbar() {
   const { setCurrentUser } = useAuth();
   const [isLoggedIn, setIsLoogedIn] = useState(false);
@@ -34,19 +33,19 @@ function Navbar() {
       <div className="nav-items">
         {isLoggedIn == false ? (
           <>
-            <Link to="/">
-              <CommonButton type="nav-button" value="Login" />
-            </Link>
-            <Link to="/signup">
-              <CommonButton type="nav-button" value="Signup" />
-            </Link>
+
           </>
         ) : (
-          <CommonButton
-            onClick={handleClick}
-            type="nav-button"
-            value="Logout"
-          />
+          <>
+            <Link to="/resourcesRegistration">
+              <CommonButton type="nav-button" value="Book Resources" />
+            </Link>
+            <CommonButton
+              onClick={handleClick}
+              type="nav-button"
+              value="Logout"
+            />
+          </>
         )}
       </div>
     </div>

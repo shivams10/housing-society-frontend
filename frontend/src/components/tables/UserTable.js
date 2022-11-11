@@ -7,10 +7,11 @@ import "./Table.css";
 
 const UserTable = () => {
   const BASE_URL = process.env.REACT_APP_BASE_URL;
-  const { allUsers, setAllUser } = useAuth();
+  const { allUsers, setAllUser,currentUser } = useAuth();
 
   useEffect(() => {
     const token = localStorage.getItem("accessToken");
+    console.log(currentUser);
     const config = {
       headers: {
         "Content-Type": "application/json",

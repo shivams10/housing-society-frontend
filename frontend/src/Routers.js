@@ -7,6 +7,7 @@ import Login from './pages/login/Login';
 import Signup from './pages/signup/Signup';
 import OccupancyTable from './components/tables/OccupancyTable';
 import ProtectedRoute from "./components/tables/protectedRoute/ProtectedRoute";
+import ResourcesRegistration from "./pages/resourcesRegistration/ResourcesRegistration";
 
 function Routers() {
   return (
@@ -18,6 +19,7 @@ function Routers() {
         </Route>
         <Route path="/" element={ <Login/> } />
         <Route path="/signup" element={ <Signup/> } />
+        <Route path="/resourcesregistration" element={ <ResourcesRegistration/> } />
     </Routes>
     )
 }

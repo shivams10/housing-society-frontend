@@ -11,5 +11,6 @@
 
 .success {
   border: 2px solid #4bb543;
-  background-color: #4bb54350;
+  background-color: white;
+  color: darkolivegreen;
 }

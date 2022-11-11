@@ -18,7 +18,7 @@ const defaultFormField = {
 const Login = () => {
   const [formField, setFormField] = useState(defaultFormField);
   const { email, password } = formField;
-  const { setCurrentUser } = useAuth();
+  const { currentUser ,setCurrentUser } = useAuth();
   const [showModal, setShowModal] = useState(false);
   const [modalValue, setModalValue] = useState("");
 
@@ -42,8 +42,10 @@ const Login = () => {
       ...formField,
     })
       .then((response) => {
+
         if (typeof response.data === "object") {
-          setCurrentUser(response.data.data);
+          setCurrentUser({...response.data.data});
+
           let token = response.data.token;
           localStorage.setItem("accessToken", token);
           navigate("/home");
