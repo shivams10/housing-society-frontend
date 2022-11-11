@@ -1,11 +1,20 @@
 import React, { useState, useEffect } from "react";
 import Axios from "axios";
 import { useNavigate } from "react-router-dom";
- 
+import styled from "styled-components";
+
 import { useAuth } from "../../contexts/UserContext";
 import Navbar from "../../components/navbar/Navbar";
 import InputField from "../../components/inputfield/InputfFeld.js";
 import FlashAlert from "../../components/flashAlert/FlashAlert";
+
+const StyledButton = styled.button`
+  background-color: purple;
+  font-size: 20px;
+  padding: 5px 10px;
+  color: white;
+  border-radius: 10px;
+`;
 
 const defaultFormField = {
   user_id: 0,
@@ -14,14 +23,13 @@ const defaultFormField = {
 };
 
 const ResourcesRegistration = () => {
-
-  const navigate = useNavigate();
-
   const [formField, setFormField] = useState(defaultFormField);
-  const { currentUser } = useAuth();
-  const { user_id, resource_id, occupancy_date } = formField;
   const [showModal, setShowModal] = useState(false);
   const [modalValue, setModalValue] = useState("");
+  const navigate = useNavigate();
+
+  const { currentUser } = useAuth();
+  const { user_id, resource_id, occupancy_date } = formField;
   const BASE_URL = process.env.REACT_APP_BASE_URL;
   const [currentUserId, setCurrentUserId] = useState(0);
 
@@ -33,7 +41,7 @@ const ResourcesRegistration = () => {
     const base64 = base64Url.replace("-", "+").replace("_", "/");
     return JSON.parse(window.atob(base64));
   }
-  
+
   useEffect(() => {
     const token = localStorage.getItem("accessToken");
     if (currentUser) {
@@ -67,6 +75,10 @@ const ResourcesRegistration = () => {
       });
   };
 
+  const navigateToResources = () => {
+    navigate("/home/resources");
+  }
+
   const handleChange = (event) => {
     const { name, value } = event.target;
     setFormField({
@@ -78,7 +90,9 @@ const ResourcesRegistration = () => {
   return (
     <>
       <Navbar />
-
+      <div className="flex my-10 mx-10">
+        <StyledButton onClick={navigateToResources}>See Resources</StyledButton>
+      </div>
       <div className="bg-gradient-to-r from-purple-600 to-blue-600 w-4/12 py-5 my-20 mx-auto rounded-2xl">
         <header className="m-4 text-white text-2xl">Book Resources</header>
         <FlashAlert show={showModal} value={modalValue} type="success" />
