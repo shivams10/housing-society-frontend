@@ -33,7 +33,7 @@ const ResourcesRegistration = () => {
     const base64 = base64Url.replace("-", "+").replace("_", "/");
     return JSON.parse(window.atob(base64));
   }
-
+  
   useEffect(() => {
     const token = localStorage.getItem("accessToken");
     if (currentUser) {
