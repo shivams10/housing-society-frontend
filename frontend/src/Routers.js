@@ -8,6 +8,8 @@ import Signup from './pages/signup/Signup';
 import OccupancyTable from './components/tables/OccupancyTable';
 import ProtectedRoute from "./components/tables/protectedRoute/ProtectedRoute";
 
+import React from 'react';
+
 function Routers() {
   return (
     <Routes>
