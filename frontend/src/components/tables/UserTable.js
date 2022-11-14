@@ -11,7 +11,6 @@ const UserTable = () => {
 
   useEffect(() => {
     const token = localStorage.getItem("accessToken");
-    console.log(currentUser);
     const config = {
       headers: {
         "Content-Type": "application/json",

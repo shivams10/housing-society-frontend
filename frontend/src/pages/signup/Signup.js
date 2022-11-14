@@ -57,7 +57,7 @@ const Signup = () => {
       <Navbar />
       <div className="signup-container">
         <header>
-          <h1 className="page-heading">Welcome! Signup</h1>
+          <h1 className="page-heading">Welcome! Add a new User</h1>
         </header>
         <form className="form-container" onSubmit={handleSubmit}>
           <InputField
@@ -95,14 +95,14 @@ const Signup = () => {
             onChange={handleChange}
             required
           />
-          <div className="check-box">
+          {/* <div className="check-box">
             <InputField
               type="checkbox"
               name="is_admin"
               onChange={handleChange}
               value={1}
             />
-          </div>
+          </div> */}
           <InputField type="submit" value="submit" />
         </form>
         <div className="other-options">

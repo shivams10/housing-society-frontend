@@ -91,14 +91,6 @@ const Login = () => {
           />
           <InputField type="submit" value="submit" />
         </form>
-        <div className="other-options">
-          <span>
-            New User?
-            <Link className="link" to="/signup">
-              Signup
-            </Link>
-          </span>
-        </div>
       </div>
     </>
   );
