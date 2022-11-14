@@ -91,7 +91,7 @@ const ResourcesRegistration = () => {
     <>
       <Navbar />
       <div className="flex my-10 mx-10">
-        <StyledButton onClick={navigateToResources}>See Resources</StyledButton>
+        <StyledButton className="hover:bg-violet-600" onClick={navigateToResources}>See Resources</StyledButton>
       </div>
       <div className="bg-gradient-to-r from-purple-600 to-blue-600 w-4/12 py-5 my-20 mx-auto rounded-2xl">
         <header className="m-4 text-white text-2xl">Book Resources</header>
